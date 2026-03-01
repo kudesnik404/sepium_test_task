@@ -1,0 +1,28 @@
+:root {
+    /*   Цвета   */
+    --greyscale-600: #32312F;
+    --greyscale-400: #656565;
+    --greyscale-300: #A1A5AD;
+    --greyscale-200: #E6E6E6;
+    --greyscale-100: #F6F6F6;
+    --orange: #FF5C00;
+
+    /*   Применение цветов   */
+    --color-text-main: var(--greyscale-600);
+    --color-text-sub: var(--greyscale-400);
+    --color-background: var(--greyscale-100);
+    --color-accent: var(--orange);
+
+    /*   Радиусы   */
+    --radius-button: 14px;
+    --radius-card: 8px;
+
+    /*   Значения контейнеров   */
+    --container-width: 1036px;
+
+    /*   Отступы   */
+    --padding-page: 96px;
+
+    /*   Размер шрифтов   */
+    --font-size-h1: 48px
+}

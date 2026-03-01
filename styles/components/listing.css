@@ -1,0 +1,18 @@
+.listing {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+
+    color: var(--color-text-main);
+}
+
+.listing__title {
+    font-size: var(--font-size-h1);
+    margin-bottom: 24px;
+}
+
+.listing__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}

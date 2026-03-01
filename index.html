@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepium Test Task</title>
+
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+<main class="page">
+    <section class="listing">
+        <h1 class="listing__title">Листинг</h1>
+
+        <ul class="listing__list">
+            <li class="listing__item">
+                <article class="card">
+
+                    <div class="card__slider">
+                        ...
+                    </div>
+
+                    <div class="card__body">
+
+                        <div class="card__info">
+                        <p class="card__text card__text--muted">
+                            Артикул<span>—</span><span>4607</span>
+                        </p>
+
+                        <h2 class="card__title">
+                            Угловая бежевая кухня на заказ с матовыми фасадами в современном стиле «Нарцисс»
+                        </h2>
+                    </div>
+                        <div class="card__materials">
+                            <p class="card__text card__text--muted">
+                                Варианты материалов
+                            </p>
+
+                            <ul class="card__material-list">
+                                <li class="card__material-item">
+                                    <input type="radio" id="4607-ПВХ" name="4607"
+                                           value="ПВХ" checked/>
+                                    <label
+                                            for="4607-ПВХ">ПВХ</label></li>
+                                <li class="card__material-item">
+                                    <input type="radio" id="4607-Эмаль"
+                                           name="4607" value="Эмаль"/>
+                                    <label for="4607-Эмаль">Эмаль</label></li>
+                                <li class="card__material-item">
+                                    <input type="radio" id="4607-Пластик"
+                                           name="4607" value="Пластик"/>
+                                    <label for="4607-Пластик">Пластик</label></li>
+                            </ul>
+                        </div>
+
+                        <div class="card__order">
+                            <div class="card__price-block">
+                                <p class="card__text card__text--muted">Цена от</p>
+                                <p class="card__price">515 700 ₽</p>
+                                <p class="card__text card__text--muted">
+                                    Погонный метр от<span>—</span><span>30 000 ₽</span>
+                                </p>
+                            </div>
+
+                            <button class="card__button">
+                                Заказать
+                            </button>
+                        </div>
+
+                        <div class="card__footer">
+                            <div class="card__likes">
+                                <img src="" alt="">
+                                <span>57</span>
+                            </div>
+
+                            <a href="/calc" class="card__link-secondary">
+                                Рассчитать стоимость
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+            </li>
+        </ul>
+    </section>
+</main>
+
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
