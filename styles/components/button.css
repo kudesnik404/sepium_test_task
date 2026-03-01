@@ -1,0 +1,40 @@
+.card:is(:not(:hover)) .card__button {
+    visibility: hidden;
+}
+
+.card__button {
+    position: relative;
+    z-index: var(--z-index-button);
+
+    width: 100%;
+    height: fit-content;
+    padding: 17px 30px;
+    border-radius: var(--radius-button);
+
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 15px;
+}
+
+.card__button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 30%;
+    background-color: #FFF;
+    opacity: .15;
+    -webkit-transform: skew(-20deg);
+    transform: skew(-20deg) translate(-120%, 0);
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+.card__button:hover::after {
+    transform: skew(-20deg) translate(380%, 0);
+}
+
+.card__button:active {
+    background: var(--orange-dark);
+}

@@ -1,0 +1,38 @@
+.card__material-list {
+    display: flex;
+    gap: 5px;
+    position: relative;
+    z-index: var(--z-index-button);
+    margin-top: 8px;
+}
+
+.card__material-item input {
+    display: none;
+}
+
+.card__material-item label {
+    display: flex;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    cursor: pointer;
+    align-items: center;
+    gap: 8px;
+}
+
+.card__material-item:has(input:checked) label {
+    background-color: var(--grey-600);
+    color: var(--white);
+}
+
+.card__material-item:has(input:checked) label::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    padding: 4px;
+
+    background: url("../../assets/icons/check-icon.svg"), var(--white);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 9999px;
+}

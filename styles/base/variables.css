@@ -1,16 +1,18 @@
 :root {
     /*   Цвета   */
-    --greyscale-600: #32312F;
-    --greyscale-400: #656565;
-    --greyscale-300: #A1A5AD;
-    --greyscale-200: #E6E6E6;
-    --greyscale-100: #F6F6F6;
+    --grey-600: #32312F;
+    --grey-400: #656565;
+    --grey-300: #A1A5AD;
+    --grey-200: #E6E6E6;
+    --grey-100: #F6F6F6;
+    --white: #FFF;
     --orange: #FF5C00;
+    --orange-dark: #cf4d04;
 
     /*   Применение цветов   */
-    --color-text-main: var(--greyscale-600);
-    --color-text-sub: var(--greyscale-400);
-    --color-background: var(--greyscale-100);
+    --color-text-main: var(--grey-600);
+    --color-text-sub: var(--grey-400);
+    --color-background: var(--grey-100);
     --color-accent: var(--orange);
 
     /*   Радиусы   */
@@ -21,8 +23,18 @@
     --container-width: 1036px;
 
     /*   Отступы   */
-    --padding-page: 96px;
+    --padding-page: 128px;
 
-    /*   Размер шрифтов   */
-    --font-size-h1: 48px
+    /*   Шрифты   */
+    --font-size-h1: 48px;
+    --font-size-main: 14px;
+
+    /*  Большой текст на карточке  */
+    --font-size-card-big: 22px;
+    --line-height-card-big: 1.2;
+    --font-weight-card-big: 600;
+
+    /*   z-index   */
+    --z-index-card: 10;
+    --z-index-button: 20;
 }
