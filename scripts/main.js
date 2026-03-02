@@ -162,13 +162,24 @@ document.addEventListener("DOMContentLoaded", function () {
         // Добавляем карточку в DOM
         listContainer.appendChild(clone);
 
+        const imagesCount = validImages.length;
+
+        if (imagesCount === 0) {
+            return;
+        }
+        const isMobile = window.innerWidth < 768;
+        const hasMultiple = imagesCount > 1;
+
         new Glide(glideElement, {
-            type: "carousel",
+            type: hasMultiple ? "carousel" : "slider",
             perView: 1,
             gap: 0,
             animationDuration: 400,
             rewind: false,
-            startAt: 0
+            autoplay: (isMobile && hasMultiple) ? 3000 : false,
+            swipeThreshold: hasMultiple ? 80 : false,
+            dragThreshold: hasMultiple ? 120 : false
         }).mount();
     });
-});
+})
+;

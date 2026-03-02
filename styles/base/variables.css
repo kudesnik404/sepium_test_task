@@ -23,8 +23,10 @@
     --container-width: 1036px;
 
     /*   Отступы   */
-    --padding-page: 128px;
+    --padding-page-horizontal: 128px;
+    --padding-page-vertical: 48px;
     --padding-card: 20px;
+    --gap: 20px;
 
     /*   Шрифты   */
     --font-size-h1: 48px;
@@ -39,4 +41,23 @@
     --z-index-card: 10;
     --z-index-button: 20;
     --z-index-overlay: 30;
+}
+
+@media (max-width: 768px) {
+    :root {
+        /*   Радиусы   */
+        --radius-button: 12px;
+        --radius-card: 6px;
+
+        /*   Отступы   */
+        --padding-page-horizontal: 64px;
+        --padding-page-vertical: 24px;
+        --padding-card: 14px;
+        --gap: 14px;
+
+        /*   Шрифты   */
+        --font-size-h1: 32px;
+        --font-size-main: 12px;
+        --font-size-card-big: 18px;
+    }
 }

@@ -6,6 +6,14 @@
     margin-top: 8px;
 }
 
+@media (max-width: 768px) {
+    .card__material-list {
+        gap: 3px;
+        margin-top: 4px;
+    }
+}
+
+
 .card__material-item input {
     display: none;
 }

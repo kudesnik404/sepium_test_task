@@ -14,14 +14,19 @@
     line-height: 150%;
 }
 
-.card:hover {
-    box-shadow: 0 0 20px 0 #00000026;
-    background-color: var(--white);
+@media (min-width: 768px) {
+    .card:hover {
+        box-shadow: 0 0 20px 0 #00000026;
+        background-color: var(--white);
+    }
 }
 
 .card__link {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: var(--z-index-card);
 }
 
@@ -37,7 +42,17 @@
 
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: var(--gap);
+}
+
+@media (max-width: 768px) {
+    .card__body {
+        padding-bottom: 10px;
+    }
+
+    .card:has(.card__no-photo) .card__body {
+        padding-top: var(--padding-card);
+    }
 }
 
 /* ---------- Тексты ---------- */
@@ -74,14 +89,18 @@
     white-space: nowrap;
 }
 
-.card:hover .card__description {
-    display: block;
+@media (min-width: 768px) {
+    .card:hover .card__description {
+        display: block;
+    }
 }
 
 /* ---------- Заголовок ---------- */
 
-.card__info {
-    height: 77px;
+@media (min-width: 1200px) {
+    .card__info {
+        height: 77px;
+    }
 }
 
 .card__title {
@@ -108,7 +127,13 @@
     display: grid;
     align-items: end;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 20px;
+    grid-gap: var(--gap);
+}
+
+@media (max-width: 768px) {
+    .card__order {
+        grid-template-columns: auto;
+    }
 }
 
 .card__price {
@@ -116,6 +141,12 @@
     line-height: var(--line-height-card-big);
     font-weight: var(--font-weight-card-big);
     margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    .card__price {
+        margin: 0;
+    }
 }
 
 /*.card__button вынесен в отдельный файл*/
@@ -128,6 +159,13 @@
     align-items: center;
     padding-top: 14px;
     border-top: 1px solid var(--grey-200);
+}
+
+@media (max-width: 768px) {
+    .card__footer {
+        padding-top: 0;
+        border-top: none;
+    }
 }
 
 /* ---------- Футер лайк ---------- */
@@ -185,4 +223,3 @@
 .card__calc-link:hover span {
     color: var(--color-accent);
 }
-

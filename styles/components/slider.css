@@ -60,6 +60,7 @@
     border-radius: 8px;
 }
 
+
 .card__slider .glide__arrows {
     position: absolute;
     top: 50%;
@@ -101,4 +102,10 @@
 
 .card__slider .glide__bullets .glide__bullet--active {
     background: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+    .card__slider .glide__resize, .card__slider .glide__arrows {
+        display: none;
+    }
 }
