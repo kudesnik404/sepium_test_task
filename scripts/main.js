@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+
     const listing = document.querySelector(".listing");
     const listingTitle = listing.querySelector(".listing__title");
     const listContainer = listing.querySelector(".listing__list");
@@ -7,14 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Устанавливаем заголовок
     listingTitle.textContent = data.title;
 
-    // Очищаем список (кроме шаблона)
+    // Очищаем список полностью
     listContainer.innerHTML = "";
-    listContainer.appendChild(templateItem);
 
     // Рендер карточек
-    data.list.forEach((item, index) => {
+    data.list.forEach((item) => {
+
+        // Клонируем шаблон
         const clone = templateItem.cloneNode(true);
         clone.classList.remove("listing__item--template");
+        clone.style.display = "";
 
         // ===== ССЫЛКИ =====
         const link = clone.querySelector(".card__link");
@@ -22,6 +25,91 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const calcLink = clone.querySelector(".card__calc-link");
         calcLink.href = "/calc";
+
+        // ===== СЛАЙДЫ =====
+        const glideElement = clone.querySelector(".glide");
+        const slidesContainer = glideElement.querySelector(".glide__slides");
+        const bulletsContainer = glideElement.querySelector(".glide__bullets");
+
+// Очистка перед вставкой
+        slidesContainer.innerHTML = "";
+        bulletsContainer.innerHTML = "";
+
+        const validImages = item.images.filter(img => img);
+
+        const resizeBtn = glideElement.querySelector(".glide__resize");
+
+        if (validImages.length === 0) {
+            const slide = document.createElement("li");
+            slide.className = "glide__slide";
+            slide.innerHTML = `<div class="card__no-photo">Нет фото</div>`;
+            slidesContainer.appendChild(slide);
+
+            const arrows = glideElement.querySelector(".glide__arrows");
+            if (arrows) arrows.style.display = "none";
+
+            if (resizeBtn) resizeBtn.style.display = "none";
+        } else {
+            if (resizeBtn) resizeBtn.style.display = "";
+
+            validImages.forEach((image, i) => {
+                const slide = document.createElement("li");
+                slide.className = "glide__slide";
+
+                const img = document.createElement("img");
+                img.src = `assets/images/${image}`;
+                img.alt = item.name;
+                img.loading = "lazy";
+                slide.appendChild(img);
+
+                slidesContainer.appendChild(slide);
+
+                if (validImages.length > 1) {
+                    const bullet = document.createElement("button");
+                    bullet.className = "glide__bullet";
+                    bullet.setAttribute("data-glide-dir", "=" + i);
+                    bulletsContainer.appendChild(bullet);
+                }
+            });
+
+            if (validImages.length <= 1) {
+                const arrows = glideElement.querySelector(".glide__arrows");
+                if (arrows) arrows.style.display = "none";
+            }
+
+            if (resizeBtn && !resizeBtn.dataset.fancyboxInitialized) {
+                resizeBtn.dataset.fancyboxInitialized = "true";
+                resizeBtn.addEventListener("click", e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const slides = glideElement.querySelectorAll(
+                        ".glide__slides > li:not(.glide__slide--clone) img"
+                    );
+
+                    const items = Array.from(slides).map(img => ({
+                        src: img.src,
+                        type: "image",
+                        caption: img.alt || ""
+                    }));
+
+                    if (items.length) Fancybox.show(items);
+                });
+            }
+        }
+
+        // ===== ОПИСАНИЕ =====
+        const body = clone.querySelector(".card__body");
+
+        const oldDescription = body.querySelector(".card__description");
+        if (oldDescription) oldDescription.remove();
+
+        if (item.description && item.description.trim() !== "") {
+            const desc = document.createElement("div");
+            desc.className = "card__description";
+            desc.textContent = item.description;
+            body.prepend(desc);
+        }
 
         // ===== АРТИКУЛ =====
         const articleSpans = clone.querySelectorAll(".card__info .card__text--muted span");
@@ -37,16 +125,17 @@ document.addEventListener("DOMContentLoaded", function () {
         materialsList.innerHTML = "";
 
         item.materials.forEach((material, i) => {
+
             const materialId = `${item.article}-${material}`;
 
             const li = document.createElement("li");
             li.className = "card__material-item";
 
             li.innerHTML = `
-                <input type="radio" 
-                       id="${materialId}" 
-                       name="${item.article}" 
-                       value="${material}" 
+                <input type="radio"
+                       id="${materialId}"
+                       name="${item.article}"
+                       value="${material}"
                        ${i === 0 ? "checked" : ""} />
                 <label for="${materialId}">${material}</label>
             `;
@@ -70,25 +159,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const likeInput = clone.querySelector(".card__likes-input");
         likeInput.id = `${item.article}-like`;
 
-        // ===== СЛАЙДЕР (картинки) =====
-        const sliderImages = clone.querySelector(".slider__images");
-        sliderImages.innerHTML = "";
-
-        item.images.forEach((image) => {
-            if (!image) return;
-
-            const img = document.createElement("img");
-            img.src = `./images/${image}`;
-            img.alt = item.name;
-            img.className = "slider__image";
-
-            sliderImages.appendChild(img);
-        });
-
-        // Добавляем карточку в список
+        // Добавляем карточку в DOM
         listContainer.appendChild(clone);
-    });
 
-    // Удаляем шаблон из DOM
-    templateItem.remove();
+        new Glide(glideElement, {
+            type: "carousel",
+            perView: 1,
+            gap: 0,
+            animationDuration: 400,
+            rewind: false,
+            startAt: 0
+        }).mount();
+    });
 });

@@ -1,0 +1,104 @@
+.card__slider,
+.card__slider .glide__track,
+.card__slider .glide__slides,
+.card__slider .glide__slide {
+    height: 100%;
+}
+
+.card__slider {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    position: relative;
+    z-index: var(--z-index-button);
+}
+
+.card__slider .glide__track {
+    overflow: hidden;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+
+.card__slider .glide__slide {
+    width: 100%;
+}
+
+.card__slider .glide__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card__slider .card__no-photo {
+    width: 100%;
+    height: 100%;
+    background: var(--grey-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 18px;
+}
+
+.card__slider .glide__resize,
+.card__slider .glide__arrow {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+
+.card__slider .glide__resize:hover,
+.card__slider .glide__arrow:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.card__slider .glide__resize {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.card__slider .glide__arrows {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    right: 15px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.card__slider .glide__arrow {
+    pointer-events: all;
+    border-radius: 50%;
+    padding: 12px;
+}
+
+.card__slider .glide__arrow.glide__arrow--right {
+    transform: rotate(180deg);
+}
+
+.card__slider .glide__bullets {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 0 var(--padding-card);
+    display: flex;
+    gap: 5px;
+}
+
+.card__slider .glide__bullets .glide__bullet {
+    width: 100%;
+    height: 2px;
+    background: var(--grey-200);
+    cursor: pointer;
+}
+
+.card__slider .glide__bullets .glide__bullet--active {
+    background: var(--color-accent);
+}

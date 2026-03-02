@@ -24,6 +24,7 @@
 
     /*   Отступы   */
     --padding-page: 128px;
+    --padding-card: 20px;
 
     /*   Шрифты   */
     --font-size-h1: 48px;
@@ -37,4 +38,5 @@
     /*   z-index   */
     --z-index-card: 10;
     --z-index-button: 20;
+    --z-index-overlay: 30;
 }

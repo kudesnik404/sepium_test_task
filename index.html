@@ -6,6 +6,8 @@
     <title>Sepium Test Task</title>
 
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
 </head>
 <body>
 
@@ -14,88 +16,108 @@
         <h1 class="listing__title">Листинг</h1>
 
         <ul class="listing__list">
-            <li class="listing__item listing__item--template">
+            <li class="listing__item listing__item--template" style="display: none">
                 <article class="card">
-                    <a href="/card" target="_blank" rel="noopener noreferrer" class="card__link"></a>
-                        <div class="card__slider">
-                            <div class="slider__images"></div>
-                            <div class="slider__pagination"></div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="card__link"></a>
+                    <div class="card__slider glide">
+
+                        <div class="glide__track" data-glide-el="track">
+                            <ul class="glide__slides"></ul>
                         </div>
 
-                        <div class="card__body">
-
-                            <div class="card__info">
-                                <p class="card__text--muted">
-                                    Артикул<span>—</span><span>4607</span>
-                                </p>
-
-                                <h2 class="card__title">
-                                    Угловая бежевая кухня на заказ с матовыми фасадами в современном стиле «Нарцисс»
-                                </h2>
-                            </div>
-                            <div class="card__materials">
-                                <p class="card__text--muted">
-                                    Варианты материалов
-                                </p>
-
-                                <ul class="card__material-list">
-                                    <li class="card__material-item">
-                                        <input type="radio" id="4607-ПВХ" name="4607"
-                                               value="ПВХ" checked/>
-                                        <label
-                                                for="4607-ПВХ">ПВХ</label></li>
-                                    <li class="card__material-item">
-                                        <input type="radio" id="4607-Эмаль"
-                                               name="4607" value="Эмаль"/>
-                                        <label for="4607-Эмаль">Эмаль</label></li>
-                                    <li class="card__material-item">
-                                        <input type="radio" id="4607-Пластик"
-                                               name="4607" value="Пластик"/>
-                                        <label for="4607-Пластик">Пластик</label></li>
-                                </ul>
-                            </div>
-
-                            <div class="card__order">
-                                <div class="card__price-block">
-                                    <p class="card__text--muted">Цена от</p>
-                                    <p class="card__price">515 700 ₽</p>
-                                    <p class="card__text--muted">
-                                        Погонный метр от<b>—</b><b>30 000 ₽</b>
-                                    </p>
-                                </div>
-
-                                <button class="card__button">
-                                    Заказать
-                                </button>
-                            </div>
-
-                            <div class="card__footer">
-                                <label class="card__likes">
-                                    <input type="checkbox" class="card__likes-input" id="4607-like">
-                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17.9411 5.10334C17.0869 4.17696 15.9149 3.66675 14.6407 3.66675C13.6883 3.66675 12.816 3.96787 12.0481 4.56168C11.6606 4.86139 11.3095 5.22812 11 5.65609C10.6906 5.22822 10.3394 4.86139 9.95177 4.56168C9.18397 3.96787 8.31172 3.66675 7.35927 3.66675C6.08506 3.66675 4.91295 4.17696 4.05882 5.10334C3.2149 6.0189 2.75 7.26971 2.75 8.62548C2.75 10.0209 3.27004 11.2983 4.3865 12.6455C5.38526 13.8506 6.82073 15.0739 8.48304 16.4905C9.05068 16.9743 9.69408 17.5227 10.3621 18.1068C10.5387 18.2614 10.7653 18.3466 11 18.3465C11.2348 18.3465 11.4614 18.2613 11.6376 18.107C12.3057 17.5228 12.9494 16.9742 13.5173 16.4901C15.1794 15.0738 16.6148 13.8506 17.6136 12.6454C18.7301 11.2983 19.25 10.0209 19.25 8.62535C19.25 7.26971 18.7851 6.0189 17.9411 5.10334Z" fill="#A1A5AD"/>
-                                    </svg>
-                                    <span class="card__likes-count">57</span>
-                                </label>
-
-                                <a href="/calc" target="_blank" rel="noopener noreferrer" class="card__calc-link">
-                                    <span>Рассчитать стоимость</span>
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.66595 5.97946C8.66644 6.06441 8.65016 6.14861 8.61804 6.22724C8.58592 6.30588 8.5386 6.3774 8.47878 6.43771L4.6063 10.3102C4.48476 10.4317 4.31993 10.5 4.14805 10.5C3.97618 10.5 3.81134 10.4317 3.68981 10.3102C3.56828 10.1887 3.5 10.0238 3.5 9.85195C3.5 9.68007 3.56828 9.51524 3.68981 9.3937L7.1105 5.97946L3.69627 2.56523C3.59053 2.44176 3.53528 2.28294 3.54155 2.1205C3.54783 1.95807 3.61516 1.80398 3.73011 1.68904C3.84505 1.57409 3.99914 1.50676 4.16157 1.50048C4.32401 1.49421 4.48283 1.54946 4.6063 1.65519L8.47878 5.52768C8.59801 5.64789 8.66524 5.81015 8.66595 5.97946Z" fill="#656565"/>
-                                    </svg>
-
-                                </a>
-                            </div>
-
+                        <div class="glide__resize">
+                            <img src="assets/icons/resize-icon.svg" alt="Увеличить">
                         </div>
+
+                        <div class="glide__arrows" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left"
+                                    data-glide-dir="<">
+                                <img src="assets/icons/arrow-icon.svg" alt="<">
+                            </button>
+
+                            <button class="glide__arrow glide__arrow--right"
+                                    data-glide-dir=">">
+                                <img src="assets/icons/arrow-icon.svg" alt=">">
+                            </button>
+                        </div>
+
+                        <div class="glide__bullets"
+                             data-glide-el="controls[nav]">
+                        </div>
+
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__description">
+                        </div>
+
+                        <div class="card__info">
+                            <p class="card__text--muted">
+                                Артикул<span>—</span><span></span>
+                            </p>
+
+                            <h2 class="card__title">
+                            </h2>
+                        </div>
+                        <div class="card__materials">
+                            <p class="card__text--muted">
+                                Варианты материалов
+                            </p>
+
+                            <ul class="card__material-list">
+                                <li class="card__material-item">
+                                    <input type="radio" id="" name=""
+                                           value=""/>
+                                    <label
+                                            for="">Материал</label></li>
+                            </ul>
+                        </div>
+
+                        <div class="card__order">
+                            <div class="card__price-block">
+                                <p class="card__text--muted">Цена от</p>
+                                <p class="card__price"></p>
+                                <p class="card__text--muted">
+                                    Погонный метр от<b>—</b><b></b>
+                                </p>
+                            </div>
+
+                            <button class="card__button">
+                                Заказать
+                            </button>
+                        </div>
+
+                        <div class="card__footer">
+                            <label class="card__likes">
+                                <input type="checkbox" class="card__likes-input" id="4607-like">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.9411 5.10334C17.0869 4.17696 15.9149 3.66675 14.6407 3.66675C13.6883 3.66675 12.816 3.96787 12.0481 4.56168C11.6606 4.86139 11.3095 5.22812 11 5.65609C10.6906 5.22822 10.3394 4.86139 9.95177 4.56168C9.18397 3.96787 8.31172 3.66675 7.35927 3.66675C6.08506 3.66675 4.91295 4.17696 4.05882 5.10334C3.2149 6.0189 2.75 7.26971 2.75 8.62548C2.75 10.0209 3.27004 11.2983 4.3865 12.6455C5.38526 13.8506 6.82073 15.0739 8.48304 16.4905C9.05068 16.9743 9.69408 17.5227 10.3621 18.1068C10.5387 18.2614 10.7653 18.3466 11 18.3465C11.2348 18.3465 11.4614 18.2613 11.6376 18.107C12.3057 17.5228 12.9494 16.9742 13.5173 16.4901C15.1794 15.0738 16.6148 13.8506 17.6136 12.6454C18.7301 11.2983 19.25 10.0209 19.25 8.62535C19.25 7.26971 18.7851 6.0189 17.9411 5.10334Z"
+                                          fill="#A1A5AD"/>
+                                </svg>
+                                <span class="card__likes-count"></span>
+                            </label>
+
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="card__calc-link">
+                                <span>Рассчитать стоимость</span>
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.66595 5.97946C8.66644 6.06441 8.65016 6.14861 8.61804 6.22724C8.58592 6.30588 8.5386 6.3774 8.47878 6.43771L4.6063 10.3102C4.48476 10.4317 4.31993 10.5 4.14805 10.5C3.97618 10.5 3.81134 10.4317 3.68981 10.3102C3.56828 10.1887 3.5 10.0238 3.5 9.85195C3.5 9.68007 3.56828 9.51524 3.68981 9.3937L7.1105 5.97946L3.69627 2.56523C3.59053 2.44176 3.53528 2.28294 3.54155 2.1205C3.54783 1.95807 3.61516 1.80398 3.73011 1.68904C3.84505 1.57409 3.99914 1.50676 4.16157 1.50048C4.32401 1.49421 4.48283 1.54946 4.6063 1.65519L8.47878 5.52768C8.59801 5.64789 8.66524 5.81015 8.66595 5.97946Z"
+                                          fill="#656565"/>
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
                 </article>
             </li>
         </ul>
     </section>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 <script src="assets/data.js"></script>
 <script src="scripts/main.js"></script>
-
 </body>
 </html>
